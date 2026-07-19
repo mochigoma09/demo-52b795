@@ -1,2 +1,3 @@
 # demo-52b795
-Auto generated demo site for 豊島どうぶつ病院
+
+AIによって自動生成された 豊島どうぶつ病院 様向けのデモサイトです。
