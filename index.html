@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>豊島どうぶつ病院｜動物病院</title>
+<meta name="description" content="豊島区の豊島どうぶつ病院。大切なペットの健康を、専門知識と温かい心でサポートします。安心してご相談ください。">
+<link rel="canonical" href="https://mochigoma09.github.io/demo-52b795/">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="豊島どうぶつ病院">
+<meta property="og:title" content="豊島どうぶつ病院｜動物病院">
+<meta property="og:description" content="豊島区の豊島どうぶつ病院。大切なペットの健康を、専門知識と温かい心でサポートします。安心してご相談ください。">
+<meta property="og:url" content="https://mochigoma09.github.io/demo-52b795/">
+<meta property="og:image" content="">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="豊島どうぶつ病院｜動物病院">
+<meta name="twitter:description" content="豊島区の豊島どうぶつ病院。大切なペットの健康を、専門知識と温かい心でサポートします。安心してご相談ください。">
+<meta name="twitter:image" content="">
+
+<!-- 構造化データ（VeterinaryCare は preset の schema.orgサブタイプ。住所/電話は実値へ） -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "Organization", "@id": "https://mochigoma09.github.io/demo-52b795/#org", "name": "豊島どうぶつ病院", "url": "https://mochigoma09.github.io/demo-52b795/" },
+    { "@type": "WebSite", "@id": "https://mochigoma09.github.io/demo-52b795/#site", "url": "https://mochigoma09.github.io/demo-52b795/", "name": "豊島どうぶつ病院", "publisher": { "@id": "https://mochigoma09.github.io/demo-52b795/#org" } },
+    { "@type": "VeterinaryCare", "@id": "https://mochigoma09.github.io/demo-52b795/#biz", "name": "豊島どうぶつ病院", "url": "https://mochigoma09.github.io/demo-52b795/", "telephone": "03-3974-1553", "address": { "@type": "PostalAddress", "addressCountry": "JP", "addressRegion": "東京都", "addressLocality": "豊島区", "streetAddress": "要町２丁目２５−１" } }
+  ]
+}
+</script>
+
+<!-- フォント（コンセプトで差し替え） / 土台CSS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho+B1:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base/base.css">
+
+<style>
+/* ============================================================
+   base.css — 全デモ共通の「不変の土台」（品質の担保。見た目の個性はここに持たせない）
+   各デモHTMLは必ずこれを読み込み、レイアウト/世界観は自由に作る。
+   固定するのは：リセット / トークンの“契約”（変数名）/ a11y / 再利用部品 のみ。
+   ============================================================ */
+
+/* --- デザイントークンの契約（値は案件コンセプトで :root を上書きする） --- */
+:root {
+  --color-primary: #1f3a5f;
+  --color-accent:  #b89150;
+  --color-text:    #2a2e35;
+  --color-bg:      #ffffff;
+  --color-surface: #f5f7fa;
+  --color-line:    rgba(0, 0, 0, 0.12);
+  --font-heading:  "Noto Serif JP", serif;
+  --font-body:     system-ui, -apple-system, "Noto Sans JP", sans-serif;
+  --radius:        14px;
+  --container:     1120px;
+}
+
+/* --- reset（wp-theme-starter から移植） --- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body { min-height: 100vh; font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.8; -webkit-font-smoothing: antialiased; }
+img, svg, video, picture { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: 0; cursor: pointer; }
+h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.4; }
+ul, ol { list-style: none; padding: 0; }
+
+/* --- a11y（不変） --- */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; } }
+
+/* --- 再利用部品（配色/形はトークン依存＝案件で変わる。構造だけ共通） --- */
+.l-wrapper { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 20px; }
+
+.c-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 14px 32px; font-weight: 700; border-radius: 999px; color: #fff; background: var(--color-primary); transition: transform .25s, box-shadow .25s; }
+.c-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.15); }
+
+/* 全画面ハンバーガー（1024px以下） */
+.c-hamburger { width: 44px; height: 44px; display: inline-flex; align-items: center; justify-content: center; position: relative; z-index: 1001; }
+.c-hamburger__bars, .c-hamburger__bars::before, .c-hamburger__bars::after { content: ""; display: block; width: 24px; height: 2px; background: var(--color-text); transition: transform .3s, opacity .3s; }
+.c-hamburger__bars { position: relative; }
+.c-hamburger__bars::before { position: absolute; top: -7px; left: 0; }
+.c-hamburger__bars::after  { position: absolute; top: 7px;  left: 0; }
+.c-hamburger[aria-expanded="true"] .c-hamburger__bars { background: transparent; }
+.c-hamburger[aria-expanded="true"] .c-hamburger__bars::before { transform: translateY(7px) rotate(45deg); }
+.c-hamburger[aria-expanded="true"] .c-hamburger__bars::after  { transform: translateY(-7px) rotate(-45deg); }
+.c-nav { position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(12px); opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; font-family: var(--font-heading); font-size: 1.2rem; }
+.c-nav.is-open { opacity: 1; visibility: visible; }
+@media (min-width: 1025px) {
+  .c-hamburger { display: none; }
+  .c-nav { position: static; flex-direction: row; gap: 32px; background: none; backdrop-filter: none; opacity: 1; visibility: visible; font-size: 1rem; }
+}
+
+/* スクロールリビール（nav.jsがJSで付与する。JS無効環境では何も付かず常に表示） */
+.js-reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.js-reveal.is-inview { opacity: 1; transform: none; }
+
+/* 追従フローティングCTA（1024px以下） */
+.c-floating-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 800; display: flex; justify-content: center; padding: 0 16px 14px; pointer-events: none; }
+.c-floating-cta .c-btn { pointer-events: auto; width: 100%; max-width: 520px; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+body { padding-bottom: 84px; } /* CTA分の余白 */
+@media (min-width: 1025px) { .c-floating-cta { display: none; } body { padding-bottom: 0; } }
+
+</style>
+<style>
+:root {
+  --color-primary: #4A7C59;
+  --color-accent: #D4AE84;
+  --color-surface: #FDFDFD;
+  --color-text: #333333;
+  --font-heading: 'Shippori Mincho B1', serif;
+  --font-body: 'Noto Sans JP', sans-serif;
+  --radius: 8px;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* Typography Overrides */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.u-en {
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Header */
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(253, 253, 253, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.l-header__logo {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Sections General */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.l-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero Section - Asymmetric */
+.p-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 140px;
+  overflow: hidden;
+}
+
+.p-hero__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.p-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.p-hero__title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.p-hero__title span {
+  display: block;
+  font-size: 0.4em;
+  color: var(--color-text);
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+.p-hero__image {
+  position: relative;
+  width: 120%;
+  right: -10%;
+}
+
+.p-hero__image img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+@media (max-width: 1024px) {
+  .p-hero__grid {
+    grid-template-columns: 1fr;
+  }
+  .p-hero__image {
+    width: 100%;
+    right: 0;
+  }
+  .p-hero__image img {
+    height: 50vh;
+  }
+}
+
+/* Problem Section - Whitespace focus */
+.p-problem {
+  background: #f9f9f7;
+}
+
+.p-problem__inner {
+  max-width: 800px;
+  margin-left: 0;
+  text-align: left;
+}
+
+.p-problem__text {
+  font-size: 1.25rem;
+  line-height: 2;
+  margin-bottom: 3rem;
+}
+
+.p-problem__highlight {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+  border-left: 4px solid var(--color-accent);
+  padding-left: 24px;
+  margin-top: 2rem;
+}
+
+/* Menu Section - Asymmetric Grid */
+.p-menu__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 40px 20px;
+  margin-top: 60px;
+}
+
+.p-menu__item {
+  grid-column: span 6;
+}
+
+.p-menu__item:nth-child(odd) {
+  grid-column: 2 / span 5;
+}
+
+.p-menu__item:nth-child(even) {
+  grid-column: 7 / span 5;
+  margin-top: 80px;
+}
+
+.p-menu__card {
+  padding: 40px;
+  background: white;
+  border: 1px solid #eee;
+  transition: 0.4s ease;
+}
+
+.p-menu__card:hover {
+  border-color: var(--color-accent);
+}
+
+.p-menu__card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+.p-menu__card p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .p-menu__item, .p-menu__item:nth-child(odd), .p-menu__item:nth-child(even) {
+    grid-column: span 12;
+    margin-top: 0;
+  }
+}
+
+/* Reasons Section - Editorial */
+.p-reasons__row {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+.p-reasons__row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.p-reasons__img {
+  flex: 1;
+}
+
+.p-reasons__img img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.p-reasons__content {
+  flex: 1;
+}
+
+.p-reasons__number {
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: rgba(74, 124, 89, 0.1);
+  line-height: 1;
+  margin-bottom: -0.5em;
+}
+
+.p-reasons__title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .p-reasons__row, .p-reasons__row:nth-child(even) {
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+}
+
+/* Doctor Section */
+.p-doctor__box {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+  background: white;
+  padding: 60px;
+  align-items: center;
+}
+
+.p-doctor__image img {
+  width: 100%;
+  border-radius: var(--radius);
+  filter: grayscale(0.2);
+}
+
+.p-doctor__name {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.p-doctor__name span {
+  font-size: 1rem;
+  margin-left: 1rem;
+  font-weight: 400;
+}
+
+.p-doctor__profile {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .p-doctor__box {
+    grid-template-columns: 1fr;
+    padding: 30px;
+  }
+}
+
+/* Voice Section */
+.p-voice__grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  padding-bottom: 40px;
+  scrollbar-width: none;
+}
+
+.p-voice__item {
+  min-width: 350px;
+  background: #f9f9f7;
+  padding: 40px;
+  border-radius: var(--radius);
+}
+
+.p-voice__meta {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.p-voice__text {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Access Section */
+.p-access__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.p-access__map {
+  height: 400px;
+  background: #eee;
+  border-radius: var(--radius);
+}
+
+.p-access__info dt {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+}
+
+.p-access__info dd {
+  margin-left: 0;
+}
+
+@media (max-width: 768px) {
+  .p-access__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CTA Section */
+.p-cta {
+  background: var(--color-primary);
+  color: white;
+  text-align: center;
+  padding: 120px 0;
+}
+
+.p-cta__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.p-cta .c-btn {
+  background: white;
+  color: var(--color-primary);
+}
+
+/* Floating CTA */
+.c-floating-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.c-floating-cta .c-btn {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.c-floating-cta .c-btn--sub {
+  background: var(--color-accent);
+}
+
+/* Footer */
+.l-footer {
+  padding: 60px 0;
+  text-align: center;
+  background: var(--color-surface);
+  border-top: 1px solid #eee;
+}
+
+.l-footer__copy {
+  font-size: 0.75rem;
+  color: #999;
+}
+</style>
+<style>:root{--color-primary:#4A7C59;--color-accent:#D4AE84;--color-surface:#FDFDFD;--color-text:#333333;--font-heading:'Shippori Mincho B1', serif;--font-body:'Noto Sans JP', sans-serif;--radius:8px;}</style>
+</head>
+<body>
+
+<h1 class="sr-only">豊島どうぶつ病院｜豊島区要町の安心できる動物病院</h1>
+
+<header class="l-header">
+  <div class="l-header__logo">豊島どうぶつ病院</div>
+  <button class="c-hamburger js-nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+    <span class="c-hamburger__bars"></span>
+  </button>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="p-hero" data-section="hero">
+    <div class="l-container">
+      <div class="p-hero__grid">
+        <div class="p-hero__content">
+          <span class="u-en">Welcome to Toshima Animal Hospital</span>
+          <h2 class="p-hero__title">
+            都会の喧騒を離れ、<br>心通う健やかな日々を。
+            <span>豊島区要町に佇む、ペットと飼い主様のための癒しの場</span>
+          </h2>
+          <a href="#" class="c-btn">Web予約・お問い合わせ</a>
+        </div>
+        <div class="p-hero__image">
+          <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTk1ODZ8MHwxfHNlYXJjaHwxfHxnZW50bGUlMjB2ZXRlcmluYXJpYW4lMjBwZXQlMjBpbnRlcmFjdGlvbnxlbnwwfDB8fHwxNzg0NDU3NTAwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="優しくペットに接する獣医師">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="p-problem" data-section="problem">
+    <div class="l-container">
+      <div class="p-problem__inner">
+        <span class="u-en">Our Empathy</span>
+        <h2 class="p-problem__text">
+          「言葉を話せない家族だからこそ、<br>
+          ほんの少しの変化も、見逃したくない。」
+        </h2>
+        <p>都会で暮らすペットたちは、私たちが思う以上に繊細です。<br>
+        病院へ行くこと自体がストレスになってしまわないよう、私たちは「安心できる空間」であることを第一に考えました。</p>
+        <div class="p-problem__highlight">
+          不安に寄り添い、確かな医療で応える。<br>それが私たちの約束です。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="p-menu" data-section="menu">
+    <div class="l-container">
+      <div class="u-en">Medical Services</div>
+      <h2 class="p-section-title">診療のご案内</h2>
+      <div class="p-menu__grid">
+        <div class="p-menu__item">
+          <div class="p-menu__card">
+            <h3>一般診療</h3>
+            <p>内科、外科をはじめ、皮膚科、眼科など幅広く対応。日々の体調不良から慢性疾患まで、丁寧に診察いたします。</p>
+          </div>
+        </div>
+        <div class="p-menu__item">
+          <div class="p-menu__card">
+            <h3>予防医療</h3>
+            <p>混合ワクチン、狂犬病予防、フィラリア・ノミダニ予防など。病気になる前の「守る医療」を大切にしています。</p>
+          </div>
+        </div>
+        <div class="p-menu__item">
+          <div class="p-menu__card">
+            <h3>健康診断</h3>
+            <p>年齢やライフスタイルに合わせた各種ドックをご用意。早期発見が、あの子との時間を長くします。</p>
+          </div>
+        </div>
+        <div class="p-menu__item">
+          <div class="p-menu__card">
+            <h3>外科手術・去勢避妊</h3>
+            <p>痛みに配慮した手術を心がけています。事前検査から術後のアフターケアまで、一貫してサポートいたします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reasons -->
+  <section class="p-reasons" data-section="reasons">
+    <div class="l-container">
+      <div class="u-en">Why Us</div>
+      <h2 class="p-section-title">当院が選ばれる理由</h2>
+      
+      <div class="p-reasons__row">
+        <div class="p-reasons__img">
+          <img src="https://images.unsplash.com/photo-1623387641168-d9803ddd3f35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTk1ODZ8MHwxfHNlYXJjaHwxfHxkb2clMjBjYXQlMjBwZWFjZWZ1bCUyMHZldCUyMHZpc2l0fGVufDB8MHx8fDE3ODQ0NTc1MDF8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="落ち着いた院内の様子">
+        </div>
+        <div class="p-reasons__content">
+          <div class="p-reasons__number">01</div>
+          <h3 class="p-reasons__title">都会の喧騒を忘れる、穏やかな空間</h3>
+          <p>一歩足を踏み入れると、木の温もりを感じる落ち着いた待合室。ペットがリラックスできるよう、照明や音響にも配慮しています。</p>
+        </div>
+      </div>
+
+      <div class="p-reasons__row">
+        <div class="p-reasons__img">
+          <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTk1ODZ8MHwxfHNlYXJjaHwyfHxnZW50bGUlMjB2ZXRlcmluYXJpYW4lMjBwZXQlMjBpbnRlcmFjdGlvbnxlbnwwfDB8fHwxNzg0NDU3NTAwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="丁寧な説明を行う獣医師">
+        </div>
+        <div class="p-reasons__content">
+          <div class="p-reasons__number">02</div>
+          <h3 class="p-reasons__title">対話を重視したインフォームド・コンセント</h3>
+          <p>治療方針は、飼い主様のご希望を伺いながら一緒に決定します。専門用語を避け、図解や資料を用いて分かりやすく説明いたします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor -->
+  <section class="p-doctor" data-section="doctor">
+    <div class="l-container">
+      <div class="u-en">Veterinarian</div>
+      <h2 class="p-section-title">獣医師紹介</h2>
+      <div class="p-doctor__box">
+        <div class="p-doctor__image">
+          <img src="https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4OTk1ODZ8MHwxfHNlYXJjaHwyfHxnZW50bGUlMjB2ZXRlcmluYXJpYW4lMjBwZXQlMjBpbnRlcmFjdGlvbnxlbnwwfDB8fHwxNzg0NDU3NTAwfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="院長写真">
+        </div>
+        <div class="p-doctor__content">
+          <h3 class="p-doctor__name">豊島 健一<span>Kenichi Toshima / 院長</span></h3>
+          <p class="p-doctor__profile">
+            「ペットは家族の一員」という想いを胸に、ここ豊島区で長年診療を続けてまいりました。高度な医療技術はもちろん大切ですが、それ以上に「飼い主様の不安を取り除くこと」が私の使命だと考えています。どんな些細なことでも、お気軽にご相談ください。
+          </p>
+          <ul style="margin-top: 1.5rem; font-size: 0.85rem;">
+            <li>・日本獣医師会 会員</li>
+            <li>・東京都獣医師会 豊島支部所属</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voice -->
+  <section class="p-voice" data-section="voice">
+    <div class="l-container">
+      <div class="u-en">Owner's Voice</div>
+      <h2 class="p-section-title">飼い主様の声</h2>
+      <div class="p-voice__grid">
+        <div class="p-voice__item">
+          <div class="p-voice__meta">トイプードル（5歳）の飼い主様</div>
+          <p class="p-voice__text">いつも丁寧に話を聴いてくださるので、安心してお任せできます。院内がとても綺麗で、怖がりのうちの子も落ち着いて待っていられます。</p>
+        </div>
+        <div class="p-voice__item">
+          <div class="p-voice__meta">保護猫（2歳）の飼い主様</div>
+          <p class="p-voice__text">初めて猫を飼うことになり不安でしたが、食事やしつけの相談にも乗っていただき、とても心強いホームドクターに出会えたと感じています。</p>
+        </div>
+        <div class="p-voice__item">
+          <div class="p-voice__meta">柴犬（10歳）の飼い主様</div>
+          <p class="p-voice__text">シニア期に入り心配事が増えましたが、検査の結果を分かりやすく説明してくださり、今後の生活のアドバイスもいただけて感謝しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access -->
+  <section class="p-access" data-section="access">
+    <div class="l-container">
+      <div class="u-en">Access</div>
+      <h2 class="p-section-title">アクセス・診療時間</h2>
+      <div class="p-access__grid">
+        <div class="p-access__info">
+          <dl>
+            <dt>住所</dt>
+            <dd>〒171-0043 東京都豊島区要町２丁目２５−１</dd>
+            <dt>電話番号</dt>
+            <dd><a href="tel:03-3974-1553">03-3974-1553</a></dd>
+            <dt>診療時間</dt>
+            <dd>
+              午前：9:00 - 12:00<br>
+              午後：16:00 - 19:00<br>
+              ※日曜・祝日は午前のみ
+            </dd>
+            <dt>休診日</dt>
+            <dd>木曜日</dd>
+          </dl>
+        </div>
+        <div class="p-access__map">
+          <!-- Google Map placeholder -->
+          <div style="width:100%; height:100%; background:#e0e5df; display:flex; align-items:center; justify-content:center; color:var(--color-primary);">
+            Google Map
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="p-cta" data-section="cta">
+    <div class="l-container">
+      <h2 class="p-cta__title">大切な家族の健やかな毎日のために。</h2>
+      <p style="margin-bottom: 2.5rem;">気になる症状や、日々のケアのご相談など、お気軽にお問い合わせください。</p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="#" class="c-btn">Web予約はこちら</a>
+        <a href="tel:03-3974-1553" class="c-btn" style="background: transparent; border: 2px solid white;">お電話で相談</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="l-footer">
+  <div class="l-container">
+    <div class="l-header__logo" style="margin-bottom: 1rem;">豊島どうぶつ病院</div>
+    <p style="font-size: 0.9rem; margin-bottom: 2rem;">東京都豊島区要町２丁目２５−１</p>
+    <p class="l-footer__copy">&copy; 2024 Toshima Animal Hospital. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<nav id="nav" class="c-nav">
+  <a href="#" data-section="hero">Home</a>
+  <a href="#" data-section="menu">診療案内</a>
+  <a href="#" data-section="reasons">当院の理念</a>
+  <a href="#" data-section="doctor">獣医師紹介</a>
+  <a href="#" data-section="access">アクセス</a>
+  <a href="#" class="c-btn">Web予約</a>
+</nav>
+
+<div class="c-floating-cta">
+  <a href="tel:03-3974-1553" class="c-btn c-btn--sub">電話相談</a>
+  <a href="#" class="c-btn">Web予約</a>
+</div>
+
+<script>
+/* nav.js — 全画面ハンバーガーの開閉（背後スクロールロック）。全デモ共通の不変挙動。 */
+(function () {
+  var t = document.querySelector('.js-nav-toggle');
+  var n = document.getElementById('nav');
+  if (t && n) {
+    t.addEventListener('click', function () {
+      var open = t.getAttribute('aria-expanded') === 'true';
+      t.setAttribute('aria-expanded', String(!open));
+      n.classList.toggle('is-open', !open);
+      document.body.style.overflow = open ? '' : 'hidden';
+    });
+    n.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { t.setAttribute('aria-expanded', 'false'); n.classList.remove('is-open'); document.body.style.overflow = ''; }
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { t.setAttribute('aria-expanded', 'false'); n.classList.remove('is-open'); document.body.style.overflow = ''; } });
+  }
+  var y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+
+  /* スクロールリビール（抑制的モーション）：各 data-section の直下要素を
+     ふわっと表示。クラスはJSで付与するのでJS無効環境では常に見える。
+     prefers-reduced-motion は base.css 側の全体無効化が効く。 */
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('is-inview'); io.unobserve(en.target); }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+    document.querySelectorAll('[data-section]').forEach(function (sec) {
+      var kids = Array.prototype.slice.call(sec.children);
+      kids.forEach(function (el, i) {
+        el.classList.add('js-reveal');
+        el.style.transitionDelay = Math.min(i * 90, 360) + 'ms';
+        io.observe(el);
+      });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
